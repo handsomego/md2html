@@ -1,0 +1,43 @@
+#! /bin/sh
+n=1
+p=1
+Quan=(0)
+Directory=(0)
+for file in storage/downloads/fq-book/docs/*;do
+if [ ${Directory[p]} ] && [[  ${Quan[p]}  -gt  $p  ]];then
+
+ for file in  ${Directory[p]}/*;do
+file=${Directory[p]}
+done
+fi
+p=$((p + 1))
+while [ !  -d $file ];do
+
+echo "<!DOCTYLPE html>\n<title>$file\n</title>\n<head>\n<body>"> ModuleHtml.html
+cat $file | marked -s >> ModuleHtml.html
+mv ModuleHteml.html  ${file%%/}
+echo "</body>\n</html>"
+
+break
+done
+Directory[n]=$file
+m=$(( n -1 ))
+directory=${Directory[m]##/}
+oldfile=${file##/}
+newfile=${oldfile##/}
+if [ $directory = $newfile ];then
+Quan[n]=$((n + 1));
+
+fi
+
+
+n=$(( n + 1))
+
+
+done
+for i in "${Quan[@]}";do
+echo $i
+done
+for j in "${Directory[@]}";do
+echo $j
+done
