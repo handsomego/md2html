@@ -3,7 +3,7 @@ n=1
 p=1
 Quan=(0)
 Directory=(0)
-for file in storage/downloads/fq-book/docs/*;do
+for file in $1/*;do
 if [ ${Directory[p]} ] && [[  ${Quan[p]}  -gt  $p  ]];then
 
  for file in  ${Directory[p]}/*;do
