@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 n=1
 p=1
 Quan=(0)
@@ -15,7 +15,7 @@ while [ !  -d $file ];do
 
 echo "<!DOCTYLPE html>\n<title>$file\n</title>\n<head>\n<body>"> ModuleHtml.html
 cat $file | marked -s >> ModuleHtml.html
-mv ModuleHteml.html  ${file%%/}
+mv ModuleHtml.html  ${file%%/}
 echo "</body>\n</html>"
 
 break
